@@ -1,0 +1,91 @@
+# environment.yml
+# Conda-compatible environment specification.
+#
+# Recommended: use pixi (see README.md) — it reads pixi.toml directly.
+# This file exists for users who prefer conda/mamba, and can also be imported
+# into pixi with:  pixi init --import environment.yml
+#
+# Usage (conda / mamba):
+#   conda env create -f environment.yml
+#   conda activate sc-workflow
+#
+# Usage (pixi import):
+#   pixi init --import environment.yml
+
+name: sc-workflow
+
+channels:
+  - conda-forge
+  - bioconda
+
+dependencies:
+  - python>=3.11,<3.13
+
+  # ── System bioinformatics tools (Linux / macOS only) ────────────────────────
+  - fastqc>=0.12
+  - multiqc>=1.21
+  - sra-tools>=3.0
+  - samtools>=1.19
+
+  # ── pip-installed Python packages ───────────────────────────────────────────
+  - pip
+
+  - pip:
+    # Core
+    - marimo>=0.10.0
+    - scanpy>=1.10.0
+    - anndata>=0.10.8
+    - numpy>=1.26.0
+    - pandas>=2.2.0
+    - scipy>=1.13.0
+    - matplotlib>=3.9.0
+    - seaborn>=0.13.2
+    - plotly>=5.22.0
+    - kaleido>=0.2.1
+
+    # QC & Preprocessing
+    - scrublet>=0.2.3
+    - doubletdetection>=4.2
+
+    # Batch Correction / Integration
+    - harmonypy>=0.0.9
+    - scvi-tools>=1.1.6
+    - bbknn>=1.6.0
+
+    # Dimensionality Reduction
+    - umap-learn>=0.5.6
+    - pynndescent>=0.5.13
+
+    # Cell Type Annotation
+    - celltypist>=1.6.3
+
+    # Differential Expression
+    - pydeseq2>=0.4.11
+    - diffxpy>=0.7.4
+    - decoupler-py>=1.8.0
+    - gseapy>=1.1.4
+
+    # Trajectory Analysis
+    - cellrank>=2.0.5
+    - scvelo>=0.3.2
+    - scFates>=1.0.4
+
+    # Cell-Cell Communication
+    - liana-py>=1.3.0
+
+    # CNV Analysis
+    - infercnvpy>=0.4.3
+
+    # Co-expression Networks
+    - PyWGCNA>=2.0.8
+
+    # Utilities
+    - rich>=13.7.0
+    - tqdm>=4.66.4
+    - h5py>=3.11.0
+    - tables>=3.9.2
+    - leidenalg>=0.10.2
+    - python-igraph>=0.11.6
+
+    # Local utility package
+    - -e src/
