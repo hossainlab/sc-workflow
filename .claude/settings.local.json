@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:ngs101.com)"
+      "WebFetch(domain:ngs101.com)",
+      "Bash(do wc:*)"
     ]
   }
 }

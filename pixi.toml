@@ -75,7 +75,7 @@ sc-workflow      = { path = "src", editable = true }
 
 # ── Genomics feature — Linux / macOS only ─────────────────────────────────────
 # Provides: FastQC, MultiQC, SRA Toolkit, samtools
-# Used only by scripts/00_fastq_to_counts.py
+# Used only by bash/00_fastq_to_counts.sh
 # Install with: pixi install -e genomics
 
 [feature.genomics.dependencies]
@@ -90,15 +90,14 @@ genomics = { features = ["genomics"], solve-group = "genomics" }
 
 # ── Convenience tasks ──────────────────────────────────────────────────────────
 [tasks]
-# Edit a script in your default Python editor, then run it
-qc           = "python scripts/01_qc_filtering.py"
-integrate    = "python scripts/02_integration_clustering.py"
-annotate     = "python scripts/03_cell_annotation.py"
-de           = "python scripts/04_differential_expression.py"
-trajectory   = "python scripts/05_trajectory_analysis.py"
-communication = "python scripts/06_cell_communication.py"
-cnv          = "python scripts/07_cnv_analysis.py"
-coexpression = "python scripts/08_coexpression_networks.py"
+qc           = "python Python/01_qc_filtering.py"
+integrate    = "python Python/02_integration_clustering.py"
+annotate     = "python Python/03_cell_annotation.py"
+de           = "python Python/04_differential_expression.py"
+trajectory   = "python Python/05_trajectory_analysis.py"
+communication = "python Python/06_cell_communication.py"
+cnv          = "python Python/07_cnv_analysis.py"
+coexpression = "python Python/08_coexpression_networks.py"
 
 # Run the full analysis pipeline in sequence (scripts 01-08)
 pipeline = { depends-on = ["qc", "integrate", "annotate", "de",

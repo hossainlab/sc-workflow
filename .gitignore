@@ -3,6 +3,10 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# Ignore claude and .claude
+claude
+.claude
+
 # C extensions
 *.so
 
